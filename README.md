@@ -1,9 +1,8 @@
-# Project Name TBD
+# Project Name: Chupa
 
 *A student-focused project to make campus study time easier, more productive, and less stressful.*
 
-> **Project name and logo:** To be finalized by the team.
-
+> **Project name and logo:** Chupa
 ## Our Mission
 
 **No one should lose study time looking for a place to study.**
