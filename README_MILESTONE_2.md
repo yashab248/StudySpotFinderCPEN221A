@@ -25,7 +25,7 @@ git pull
 git checkout -b milestone-2
 # copy the Markdown files and src/ stubs into the repository
 git add milestone_2_requirements.md milestone_2_architecture.md src
- git commit -m "Add milestone 2 requirements, architecture and component stubs"
+git commit -m "Add milestone 2 requirements, architecture and component stubs"
 git push -u origin milestone-2
 ```
 

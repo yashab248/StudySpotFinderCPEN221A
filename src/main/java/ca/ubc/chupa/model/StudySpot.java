@@ -3,34 +3,113 @@ package ca.ubc.chupa.model;
 import java.time.DayOfWeek;
 import java.util.Map;
 
-/** Immutable description of a study space. */
+/**
+ * Represents a single UBC study space.
+ *
+ * This model is shared between the client and server.
+ */
 public final class StudySpot {
-    public enum Crowding { LOW, MODERATE, HIGH, UNKNOWN }
-    /** Pre: id/name/building nonblank; hours has all seven weekdays; crowding nonnull;
-     * timestamp ISO-8601 iff crowding is known. Post: object contains these values. */
-    public StudySpot(String id, String name, String building, boolean individualStudy,
-            boolean groupStudy, boolean chargingOutlets, boolean accessibleEntry,
-            Crowding crowding, String crowdingTimestamp, Map<DayOfWeek, DailyHours> weeklyHours) {
+
+    /**
+     * Recorded crowding category.
+     * UNKNOWN indicates unavailable crowding information.
+     */
+    public enum Crowding {
+        LOW,
+        MODERATE,
+        HIGH,
+        UNKNOWN
+    }
+
+    /**
+     * Creates a study space.
+     *
+     * Pre:
+     * - id, name, and building are nonnull and nonblank.
+     * - crowding != null.
+     * - weeklyHours != null.
+     * - weeklyHours contains all seven days of the week.
+     * - Every day maps to a nonnull DailyHours object.
+     *
+     * Post:
+     * - Stores the specified study-space information.
+     * - Weekly opening hours are stored independently
+     *   of the caller's map.
+     */
+    public StudySpot(String id,
+            String name,
+            String building,
+            boolean individualStudy,
+            boolean groupStudy,
+            boolean chargingOutlets,
+            Crowding crowding,
+            Map<DayOfWeek, DailyHours> weeklyHours) {
+
         throw new UnsupportedOperationException("TODO");
     }
-    /** Pre: none. Post: returns the unique ID. */
-    public String getId() { throw new UnsupportedOperationException("TODO"); }
-    /** Pre: none. Post: returns display name. */
-    public String getName() { throw new UnsupportedOperationException("TODO"); }
-    /** Pre: none. Post: returns building name. */
-    public String getBuilding() { throw new UnsupportedOperationException("TODO"); }
-    /** Pre: none. Post: returns whether individual study is supported. */
-    public boolean supportsIndividualStudy() { throw new UnsupportedOperationException("TODO"); }
-    /** Pre: none. Post: returns whether group study is supported. */
-    public boolean supportsGroupStudy() { throw new UnsupportedOperationException("TODO"); }
-    /** Pre: none. Post: returns whether outlets are available. */
-    public boolean hasChargingOutlets() { throw new UnsupportedOperationException("TODO"); }
-    /** Pre: none. Post: returns whether accessible entry is documented. */
-    public boolean hasAccessibleEntry() { throw new UnsupportedOperationException("TODO"); }
-    /** Pre: none. Post: returns crowding classification. */
-    public Crowding getCrowding() { throw new UnsupportedOperationException("TODO"); }
-    /** Pre: none. Post: returns ISO-8601 crowding timestamp, or null if unknown. */
-    public String getCrowdingTimestamp() { throw new UnsupportedOperationException("TODO"); }
-    /** Pre: none. Post: returns an unmodifiable seven-day map of hours. */
-    public Map<DayOfWeek, DailyHours> getWeeklyHours() { throw new UnsupportedOperationException("TODO"); }
+
+    /**
+     * Pre: none.
+     * Post: Returns this study space's unique identifier.
+     */
+    public String getId() {
+        throw new UnsupportedOperationException("TODO");
+    }
+
+    /**
+     * Pre: none.
+     * Post: Returns the study space's display name.
+     */
+    public String getName() {
+        throw new UnsupportedOperationException("TODO");
+    }
+
+    /**
+     * Pre: none.
+     * Post: Returns the building containing the study space.
+     */
+    public String getBuilding() {
+        throw new UnsupportedOperationException("TODO");
+    }
+
+    /**
+     * Pre: none.
+     * Post: Returns whether individual study is supported.
+     */
+    public boolean supportsIndividualStudy() {
+        throw new UnsupportedOperationException("TODO");
+    }
+
+    /**
+     * Pre: none.
+     * Post: Returns whether group study is supported.
+     */
+    public boolean supportsGroupStudy() {
+        throw new UnsupportedOperationException("TODO");
+    }
+
+    /**
+     * Pre: none.
+     * Post: Returns whether charging outlets are available.
+     */
+    public boolean hasChargingOutlets() {
+        throw new UnsupportedOperationException("TODO");
+    }
+
+    /**
+     * Pre: none.
+     * Post: Returns the recorded crowding category.
+     */
+    public Crowding getCrowding() {
+        throw new UnsupportedOperationException("TODO");
+    }
+
+    /**
+     * Pre: none.
+     * Post: Returns an unmodifiable map containing the
+     * opening hours for all seven days of the week.
+     */
+    public Map<DayOfWeek, DailyHours> getWeeklyHours() {
+        throw new UnsupportedOperationException("TODO");
+    }
 }

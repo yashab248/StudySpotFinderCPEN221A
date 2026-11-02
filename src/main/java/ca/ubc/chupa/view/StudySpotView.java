@@ -1,16 +1,62 @@
+
 package ca.ubc.chupa.view;
 
 import ca.ubc.chupa.model.StudySpot;
 import java.util.List;
 
-/** Contract for a client-side graphical study-space view. */
+/**
+ * Defines the user interface for displaying study spaces.
+ *
+ * This component resides on the client.
+ *
+ * A concrete Swing implementation will provide
+ * the actual graphical interface.
+ */
 public interface StudySpotView {
-    /** Pre: results nonnull. Post: visible list reflects results. */
+
+    /**
+     * Displays the available study-space results.
+     *
+     * Pre:
+     * - results != null.
+     * - results contains no null elements.
+     *
+     * Post:
+     * - The visible results list contains the provided spaces.
+     * - Each result displays its name and building.
+     */
     void showResults(List<StudySpot> results);
-    /** Pre: spot nonnull. Post: visible details reflect all spot fields. */
+
+    /**
+     * Displays detailed information about a selected space.
+     *
+     * Pre: spot != null.
+     *
+     * Post: The interface displays the selected space's
+     * name, building, study modes, charging outlets,
+     * weekly opening hours, and recorded crowding.
+     *
+     * If crowding is UNKNOWN, the interface displays
+     * "Crowding information unavailable".
+     */
     void showDetails(StudySpot spot);
-    /** Pre: message nonblank. Post: error is visible to user. */
+
+    /**
+     * Displays an error message.
+     *
+     * Pre: message is nonnull and nonblank.
+     *
+     * Post: The provided error message is visible.
+     */
     void showError(String message);
-    /** Pre: none. Post: no-results state is visible. */
+
+    /**
+     * Displays the no-results message.
+     *
+     * Pre: none.
+     *
+     * Post: The interface displays
+     * "No study spaces match your search."
+     */
     void showNoMatches();
 }
